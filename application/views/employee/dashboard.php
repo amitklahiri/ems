@@ -1,9 +1,11 @@
 <div class="container mt-4">
-	<div class="row d-flex ml-2">
-		<h3>Employee Dashboard</h3>
-	</div>
-	<div class="row float-right text-success font-weight-bold">
-		<a href="<?php echo base_url(); ?>employee/empadd">Add</a>
+	<div class="row d-flex">
+		<div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 text-left">
+			<h3>Employee Dashboard</h3>
+		</div>
+		<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
+			<a href="<?php echo base_url(); ?>employee/empadd">Add</a>
+		</div>
 	</div>
 	<div class="row table-responsive">
 		<table class="table table-striped">
@@ -27,8 +29,8 @@
 					<td><?php echo $emp->name; ?></td>
 					<td><?php echo $emp->email; ?></td>
 					<td><?php echo $emp->mobile; ?></td>
-					<td><a href="empedit/<?php echo $emp->id; ?>">Edit</a></td>
-					<td><a href="empdelete/<?php echo $emp->id; ?>">Delete</a></td>
+					<td><a href="<?php echo base_url(); ?>employee/empedit/<?php echo $emp->id; ?>">Edit</a></td>
+					<td><a href="<?php echo base_url(); ?>employee/empdelete/<?php echo $emp->id; ?>">Delete</a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
