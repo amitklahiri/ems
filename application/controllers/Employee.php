@@ -148,19 +148,64 @@ class Employee extends CI_Controller
 
 	public function attendance()
 	{
-		$employees = $this->Employee_model->dashboard();
+		$year = $this->input->post("year");
+		$year = $year != "" ? $year : date("Y");
+		$month = $this->input->post("month");
+		$month = $month != "" ? $month : date("m");
+		$emp_id = $this->input->post("empid");
+		$updatepage = $this->uri->segment(3);
+
+		$data = $this->Employee_model->attendance();
 		
 		$this->load->view("inc/header");
-		$this->load->view("employee/attendance", [ "employees" => $employees ]);
+		if ($updatepage == 1) {
+			redirect("employee/attadd/$emp_id/$year/$month", [ "year" => $year, "month" => $month, "data" => $data ]);
+		} else {
+			$this->load->view("employee/attendance", [ "year" => $year, "month" => $month, "data" => $data ]);
+		}
 		$this->load->view("inc/footer");
 	}
 
-	public function empattadd($emp_id)
+	public function attsearch()
 	{
+		$emp_id = $this->uri->segment(3);
+		$year = $this->uri->segment(4);
+		$month = $this->uri->segment(5);
+
 		$employee = $this->Employee_model->empsearch($emp_id);
+		$attendances = $this->Employee_model->attsearch();
+		
+		$this->load->view("inc/header");
+		redirect("employee/attadd/$emp_id/$year/$month", [ "year" => $year, "month" => $month, "employee" => $employee, "attendances" => $attendances ]);
+		$this->load->view("inc/footer");
+	}
+
+	public function attadd()
+	{
+		$emp_id = $this->uri->segment(3);
+		$year = $this->uri->segment(4);
+		$month = $this->uri->segment(5);
+
+		$employee = $this->Employee_model->empsearch($emp_id);
+		$attendances = $this->Employee_model->attsearch();
 
 		$this->load->view("inc/header");
-		$this->load->view("employee/empattadd", [ "employee" => $employee ]);
+		$this->load->view("employee/attadd", [ "year" => $year, "month" => $month, "employee" => $employee, "attendances" => $attendances ]);
+		$this->load->view("inc/footer");
+	}
+
+	public function attupdate()
+	{
+		$emp_id = $this->input->post("empid");
+		$year = $this->input->post("year");
+		$month = $this->input->post("month");
+
+		$employee = $this->Employee_model->empsearch($emp_id);
+		$data = $this->Employee_model->attupdate();
+		$attendances = $this->Employee_model->attsearch();
+
+		$this->load->view("inc/header");
+		redirect("employee/attadd/$emp_id/$year/$month", [ "year" => $year, "month" => $month, "employee" => $employee, "attendances" => $attendances ]);
 		$this->load->view("inc/footer");
 	}
 }
