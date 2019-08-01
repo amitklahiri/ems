@@ -35,7 +35,7 @@ EMS stands for Employee Management System. This application deals with the daily
 --
 -- Table structure for table `attendance`
 --
-
+```sql
 DROP TABLE IF EXISTS `attendance`;
 CREATE TABLE IF NOT EXISTS `attendance` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
