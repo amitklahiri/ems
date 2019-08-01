@@ -26,6 +26,7 @@ EMS stands for Employee Management System. This application deals with the daily
 	* User type should be 0 (zero) for Super Admin. 
 	* User status should be 1 to make it active. 
 
+```sql
 --
 -- Database: `ems`
 --
@@ -35,7 +36,6 @@ EMS stands for Employee Management System. This application deals with the daily
 --
 -- Table structure for table `attendance`
 --
-```sql
 DROP TABLE IF EXISTS `attendance`;
 CREATE TABLE IF NOT EXISTS `attendance` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
