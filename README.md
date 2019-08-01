@@ -9,7 +9,7 @@ EMS stands for Employee Management System. This application deals with the daily
 # Functionalities
 1. Super Admin login only.
 2. Add, edit, delete, view employees. 
-3. Add, update daily attendance of employees.
+3. Add, update, view daily attendance of employees, year and month wise.
 
 # Instructions
 1. Dump the database as instructed below. 
