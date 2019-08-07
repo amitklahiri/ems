@@ -3,11 +3,15 @@ class Employee extends CI_Controller
 {
 	public function dashboard()
 	{
-		$employees = $this->Employee_model->dashboard();
-		
-		$this->load->view("inc/header");
-		$this->load->view("employee/dashboard", [ "employees" => $employees ]);
-		$this->load->view("inc/footer");
+		if (!$this->session->userdata("username")) {
+			redirect("user/login");
+		} else {
+			$employees = $this->Employee_model->dashboard();
+			
+			$this->load->view("inc/header");
+			$this->load->view("employee/dashboard", [ "employees" => $employees ]);
+			$this->load->view("inc/footer");
+		}
 	}
 
 	public function empadd()

@@ -42,7 +42,7 @@
 					<td><?php echo $data[2][$i]; ?></td>
 					<td><?php echo $data[3][$i]; ?></td>
 					<td><?php echo $data[4][$i]; ?></td>
-					<td><a href="<?php echo base_url(); ?>employee/attadd/<?php echo $data[0][$i]; ?>/<?php echo $year; ?>/<?php echo $month; ?>" class="btn btn-primary">Update</a></td>
+					<td><a href="<?php echo base_url(); ?>employee/attadd/<?php echo $data[0][$i]; ?>/<?php echo $year; ?>/<?php echo $month; ?>"><i class="fas fa-edit"></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>

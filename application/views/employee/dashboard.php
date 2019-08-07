@@ -4,7 +4,7 @@
 			<h3>Employee Dashboard</h3>
 		</div>
 		<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-4 text-right">
-			<a href="<?php echo base_url(); ?>employee/empadd">Add</a>
+			<a href="<?php echo base_url(); ?>employee/empadd"><h3><i class="fas fa-plus-square"></i></h3></a>
 		</div>
 	</div>
 	<div class="row table-responsive">
@@ -29,8 +29,8 @@
 					<td><?php echo $emp->name; ?></td>
 					<td><?php echo $emp->email; ?></td>
 					<td><?php echo $emp->mobile; ?></td>
-					<td><a href="<?php echo base_url(); ?>employee/empedit/<?php echo $emp->id; ?>">Edit</a></td>
-					<td><a href="<?php echo base_url(); ?>employee/empdelete/<?php echo $emp->id; ?>">Delete</a></td>
+					<td><a href="<?php echo base_url(); ?>employee/empedit/<?php echo $emp->id; ?>"><i class="fas fa-edit"></i></a></td>
+					<td><a href="<?php echo base_url(); ?>employee/empdelete/<?php echo $emp->id; ?>"><i class="fas fa-trash-alt"></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>

@@ -6,9 +6,7 @@
 	<title>EMS Application</title>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
-	<script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/popper.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/all.min.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -27,12 +25,22 @@
 				</li>
 				<?php } ?>
 			</ul>
-			<ul class="navbar-nav">
+			<ul class="navbar-nav align-content-center">
+				<?php if ($this->session->has_userdata("username")) { ?>
+				<li class="nav-item">					
+					<a href="<?php echo base_url(); ?>user/adminImage" class="nav-link">
+						<img src="<?php echo base_url(); ?>assets/image/user.png" width="35" class="rounded-circle mr-2" alt="" style="background-color: #ffffff;">
+					</a>
+				</li>
+				<li class="nav-item">
+					<a href="<?php echo base_url(); ?>user/adminSettings" class="nav-link"><?php echo $this->session->userdata("username"); ?></a>
+				</li>
+				<?php } ?>
 				<li class="nav-item">
 					<?php if (!$this->session->has_userdata("username")) { ?>
 					<a class="nav-link" href="<?php echo base_url(); ?>user/login">Login</a>
 					<?php } else { ?>
-					<a class="nav-link" href="<?php echo base_url(); ?>user/logout">Logout</a>
+					<a class="nav-link" href="<?php echo base_url(); ?>user/logout">Logout</a>		
 					<?php } ?>
 				</li>
 			</ul>

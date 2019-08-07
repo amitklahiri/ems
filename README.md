@@ -5,6 +5,7 @@ EMS stands for Employee Management System. This application deals with the daily
 * PHP
 * CodeIgniter PHP Framework, version 3.1.10.
 * Bootstrap 4.3
+* Font Awesome
 
 # Functionalities
 1. Super Admin login only.
